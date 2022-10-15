@@ -2,6 +2,7 @@
 React/node_modules
 .DS_*
 *.log
+*.csv
 logs
 **/*.backup.*
 **/*.back.*
