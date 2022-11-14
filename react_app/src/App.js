@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg";
+import "./App.css";
+import Navbar from "./components/Navbar/Navbar";
+import Button from "./components/Navbar/Navbar";
+import Button_ from "./components/Button/Button";
+import ModelPrediction from "./components/ModelPrediction/ModelPrediction";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Navbar />
+      <Button_ id="webcam" text="Webcam"></Button_>
+      <Button_ id="upload" text="Upload"></Button_>
+      {/* <ModelPrediction /> */}
     </div>
   );
 }
-
 export default App;
