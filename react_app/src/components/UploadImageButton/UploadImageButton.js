@@ -32,14 +32,32 @@ export const Button = ({
 
 const UploadImageButton_ = () => {
   const [selectedImage, setSelectedImage] = useState(null);
-  async function classify() {
+  const classify = async () => {
+    // const im = new Image();
+    // im.src = selectedImage;
+    let imageElement = new Image(225, 225);
+    imageElement.src = selectedImage;
+
     // Relative URL provided for my-model.json.
-    const model = await tf.loadGraphModel("../../data1_web/model.json");
+
+    const model = await tf.loadGraphModel("../data1_web/model.json");
     // Once model is loaded, let's try using it to make a prediction!
     // Print to developer console for now.
-    const zeros = tf.zeros([1, 225, 225, 3]);
-    model.predict(zeros).print();
-  }
+    let image = tf.browser.fromPixels(imageElement);
+    // const zeros = tf.zeros([1, 225, 225, 3]);
+    // model.predict(zeros).print();
+    model.predict(image).print();
+    const normalize = tf.scalar(255);
+    image = tf.div(image, normalize);
+    const image_1 = image.reshape([1, 225, 225, 3]);
+
+    model.predict(image_1).print();
+
+    // console.log(image.shape);
+
+    // When image object is loaded
+  };
+  //   console.log("classification done");
 
   return (
     <div>
@@ -53,7 +71,7 @@ const UploadImageButton_ = () => {
           />
           <br />
           <button onClick={() => setSelectedImage(null)}>Remove</button>
-          <button onClick={classify()}>Classify</button>
+          <button onClick={() => classify()}>Classify</button>
         </div>
       )}
       <br />

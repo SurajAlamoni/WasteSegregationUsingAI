@@ -3,7 +3,7 @@ import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import Button from "./components/Navbar/Navbar";
 import Button_ from "./components/Button/Button";
-import ModelPrediction from "./components/ModelPrediction/ModelPrediction";
+// import ModelPrediction from "./components/ModelPrediction/ModelPrediction";
 import UploadImageButton_ from "./components/UploadImageButton/UploadImageButton";
 import WebcamCapture from "./components/Button/Button";
 
