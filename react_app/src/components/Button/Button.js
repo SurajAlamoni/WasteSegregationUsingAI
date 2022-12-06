@@ -7,7 +7,6 @@ const STYLES = ["btn--primary", "btn--outline"];
 
 const SIZES = ["btn--medium", "btn--large"];
 
-
 const videoConstraints = {
   width: 720,
   height: 720,
