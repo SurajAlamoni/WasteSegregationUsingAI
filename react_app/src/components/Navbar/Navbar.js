@@ -1,5 +1,5 @@
 import React,  {Component}  from 'react';
-import {MenuItems} from "./MenuItems"
+
 import './Navbar.css'
 
 class Navbar extends Component{
@@ -14,11 +14,6 @@ class Navbar extends Component{
         return(
             <nav className="NavbarItems">
                 <h1 className="Navbar-logo"><span className="navbar-logo-text">Segwaste</span><i className='fab fa-react'></i></h1>
-                <div className="menu-icon" onClick={this.handleClick}>
-                    <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
-
-                </div>
-
             </nav>
         )
 
