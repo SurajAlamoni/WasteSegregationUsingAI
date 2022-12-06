@@ -19,18 +19,6 @@ class Navbar extends Component{
 
                 </div>
 
-                <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
-                    {MenuItems.map((item, index)=> {
-                        return (
-                            <li key={index}>
-                                <a className={item.cName} href={item.url}>
-                                {item.title}
-                                </a>
-                            </li>
-                        )
-                    })}
-                    
-                </ul>
             </nav>
         )
 
