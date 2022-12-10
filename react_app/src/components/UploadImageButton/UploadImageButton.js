@@ -65,7 +65,7 @@ const UploadImageButton_ = () => {
                 className="mt-3 ml-3"
                 variant="success"
                 size="md"
-                onClick={() => classify(selectedImage)}
+                onClick={() => classify(selectedImage, "upload")}
               >
                 Classify
               </Button>

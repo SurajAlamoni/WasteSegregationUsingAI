@@ -1,24 +1,35 @@
 import * as tf from "@tensorflow/tfjs";
 import React, { useState } from "react";
+
 function switch_statement(data) {
   switch (data["0"]) {
     case 0:
       console.log("cardboard");
+      //   finalresult = "Cardboard";
       break;
     case 1:
       console.log("e-waste");
+      //   finalresult = "E-Waste";
       break;
     case 2:
       console.log("glass");
+      //   finalresult = "Glass";
+
       break;
     case 3:
       console.log("metal");
+      //   finalresult = "Metal";
+
       break;
     case 4:
       console.log("paper");
+      //   finalresult = "Paper";
+
       break;
     case 5:
       console.log("plastic");
+      //   finalresult = "Plastic";
+
       break;
   }
 }
@@ -32,16 +43,19 @@ const load_model_2 = async (image_1) => {
     .data()
     .then((data) => switch_statement(data));
 };
-const classify = async (selectedImage) => {
-  const imageElement = new Image(225, 225);
-  imageElement.src = URL.createObjectURL(selectedImage);
-
+const Classify = async (selectedImage, text) => {
   // Relative URL provided for my-model.json.
-
+  const [finalResult, setFinalResult] = useState("Testing");
+  const imageElement = new Image(225, 225);
+  if (text == "upload") {
+    imageElement.src = URL.createObjectURL(selectedImage);
+  } else if (text == "camera") {
+    imageElement.src = selectedImage;
+  }
   const model_1 = await tf.loadGraphModel("../data1_web/model.json");
   const classify_2 = (image_1, arr) => {
     if (arr[0] < 0.5) {
-      console.log("Organic");
+      finalresult = "Organic";
     } else {
       load_model_2(image_1);
     }
@@ -55,4 +69,4 @@ const classify = async (selectedImage) => {
   prediction_number_1.array().then((arr) => classify_2(image_1, arr));
 };
 
-export default classify;
+export default Classify;

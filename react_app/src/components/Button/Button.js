@@ -1,7 +1,10 @@
 import React, { useState, useCallback, useRef } from "react";
-import Button from "react-bootstrap/Button"
+import Button from "react-bootstrap/Button";
 import "./Button.css";
 import Webcam from "react-webcam";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import classify from "../../Model_logic";
 
 const STYLES = ["btn--primary", "btn--outline"];
 
@@ -30,7 +33,28 @@ const WebcamCapture = () => {
         <div>
           <img alt="not fount" width={"250px"} src={imageSrc} />
           <br />
-          <Button className="mt-3 mb-3" variant="danger" size="md" onClick={() => setImageSrc(null)}>Remove</Button>
+          <Row>
+            <Col>
+              <Button
+                className="mt-3 mb-3"
+                variant="danger"
+                size="md"
+                onClick={() => setImageSrc(null)}
+              >
+                Remove
+              </Button>
+            </Col>
+            <Col>
+              <Button
+                className="mt-3 mb-3"
+                variant="success"
+                size="md"
+                onClick={() => classify(imageSrc, "camera")}
+              >
+                Classify
+              </Button>
+            </Col>
+          </Row>
         </div>
       )}
       {isShowVideo && (
@@ -41,7 +65,9 @@ const WebcamCapture = () => {
           videoConstraints={videoConstraints}
         />
       )}
-      <Button className="mt-3" variant="success" size="md" onClick={capture}>Capture photo</Button>
+      <Button className="mt-3" variant="success" size="md" onClick={capture}>
+        Capture photo
+      </Button>
     </>
   );
 };

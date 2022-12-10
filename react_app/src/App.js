@@ -1,15 +1,17 @@
 import logo from "./logo.svg";
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Navbar from "./components/Navbar/Navbar";
 import Button from "./components/Navbar/Navbar";
 import Button_ from "./components/Button/Button";
 // import ModelPrediction from "./components/ModelPrediction/ModelPrediction";
-import Container from "react-bootstrap/Container"
-import Row from "react-bootstrap/Row"
-import Col from "react-bootstrap/Col"
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import UploadImageButton_ from "./components/UploadImageButton/UploadImageButton";
 import WebcamCapture from "./components/Button/Button";
+import { Result } from "./components/Result/Result";
+import Classify from "./Model_logic";
 
 function App() {
   return (
@@ -24,15 +26,24 @@ function App() {
             </Col>
           </Row>
           <Row>
-            <Col><h4>Or</h4></Col>
+            <Col>
+              <h4>Or</h4>
+            </Col>
           </Row>
           <Row>
             <Col>
               <WebcamCapture id="webcam" text="Webcam"></WebcamCapture>
             </Col>
             <Col className="verticalLine">
-              <UploadImageButton_ id="upload" text="Upload"></UploadImageButton_>
+              <UploadImageButton_
+                id="upload"
+                text="Upload"
+              ></UploadImageButton_>
             </Col>
+          </Row>
+          <Row>
+            {finalresult && <Result materialType={Classify.finalResult} />}
+            {/* console.log(finalresult) */}
           </Row>
         </Container>
       </center>
