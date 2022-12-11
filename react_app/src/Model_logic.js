@@ -1,39 +1,47 @@
 import * as tf from "@tensorflow/tfjs";
-import React, { useState } from "react";
 
-function switch_statement(data) {
+function switch_statement(data, setState) {
   switch (data["0"]) {
     case 0:
       console.log("cardboard");
+      setState("Cardboard");
       //   finalresult = "Cardboard";
       break;
     case 1:
       console.log("e-waste");
+      setState("E-waste");
       //   finalresult = "E-Waste";
       break;
     case 2:
       console.log("glass");
+      setState("Glass");
       //   finalresult = "Glass";
 
       break;
     case 3:
       console.log("metal");
+      setState("Metal");
+
       //   finalresult = "Metal";
 
       break;
     case 4:
       console.log("paper");
+      setState("Paper");
+
       //   finalresult = "Paper";
 
       break;
     case 5:
       console.log("plastic");
+      setState("Plastic");
+
       //   finalresult = "Plastic";
 
       break;
   }
 }
-const load_model_2 = async (image_1) => {
+const load_model_2 = async (image_1, setState) => {
   const model_2 = await tf.loadGraphModel("../data2_web/model.json");
   const prediction_number_2 = model_2.predict(image_1);
   prediction_number_2.print();
@@ -41,23 +49,25 @@ const load_model_2 = async (image_1) => {
     .squeeze()
     .argMax()
     .data()
-    .then((data) => switch_statement(data));
+    .then((data) => switch_statement(data, setState));
 };
-const Classify = async (selectedImage, text) => {
+const Classify = async (selectedImage, text, setState) => {
   // Relative URL provided for my-model.json.
-  const [finalResult, setFinalResult] = useState("Testing");
+  // const [finalResult, setFinalResult] = useState("Testing");
   const imageElement = new Image(225, 225);
-  if (text == "upload") {
+  if (text === "upload") {
     imageElement.src = URL.createObjectURL(selectedImage);
-  } else if (text == "camera") {
+  } else if (text === "camera") {
     imageElement.src = selectedImage;
   }
   const model_1 = await tf.loadGraphModel("../data1_web/model.json");
   const classify_2 = (image_1, arr) => {
     if (arr[0] < 0.5) {
-      finalresult = "Organic";
+      setState("Organic");
+      console.log("Organic");
+      // finalresult = "Organic";
     } else {
-      load_model_2(image_1);
+      load_model_2(image_1, setState);
     }
   };
   let image = tf.browser.fromPixels(imageElement);

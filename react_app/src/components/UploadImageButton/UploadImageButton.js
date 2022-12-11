@@ -3,8 +3,7 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import "./UploadImageButton.css";
-import * as tf from "@tensorflow/tfjs";
-import classify from "../../Model_logic";
+import Classify from "../../Model_logic";
 
 const STYLES = ["btn--primary", "btn--outline"];
 
@@ -34,7 +33,7 @@ export const UploadImageButton = ({
   );
 };
 
-const UploadImageButton_ = () => {
+const UploadImageButton_ = (props) => {
   const [selectedImage, setSelectedImage] = useState(null);
 
   return (
@@ -42,20 +41,21 @@ const UploadImageButton_ = () => {
       <h3 className="mb-3">Upload an image from your computer</h3>
       {selectedImage && (
         <div>
-          <Row>
-            <img
-              alt="not fount"
-              width={"250px"}
-              src={URL.createObjectURL(selectedImage)}
-            />
-          </Row>
+          <img
+            alt="not fount"
+            width="250"
+            src={URL.createObjectURL(selectedImage)}
+          />
           <Row>
             <Col>
               <Button
                 className="mt-3"
                 variant="danger"
                 size="md"
-                onClick={() => setSelectedImage(null)}
+                onClick={() => {
+                  setSelectedImage(null);
+                  props.finalState(null);
+                }}
               >
                 Remove
               </Button>
@@ -65,7 +65,10 @@ const UploadImageButton_ = () => {
                 className="mt-3 ml-3"
                 variant="success"
                 size="md"
-                onClick={() => classify(selectedImage, "upload")}
+                onClick={() => {
+                  console.log(selectedImage);
+                  Classify(selectedImage, "upload", props.finalState);
+                }}
               >
                 Classify
               </Button>
