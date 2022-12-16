@@ -12,7 +12,7 @@ We have trained two Deep Learning Models and integrated them together to get the
 
 Model 1 is binary classification model which classifies an image into Organic or Recyclable waste.
 
-Model 2 is a multi classification model which further segregates the Recyclable image into 6 classes namely organic, plastic, metal, paper, cardboard, e-waste, and glass waste.
+Model 2 is a multi classification model which further segregates the Recyclable image into 6 classes namely plastic, metal, paper, cardboard, e-waste, and glass waste.
 
 Outline of model architecture
 ![Model Architecture](./assets/Model%20arch.png)
