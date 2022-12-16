@@ -1,5 +1,7 @@
 # WasteSegregationUsingAI
 
+Demo at https://waste-segregation-ml.web.app/
+
 Waste Segregation has become a major task in Recycling Plants and Material recovery facilities.
 
 We aim to solve this problem by using openly available datasets trained on different machine learning models to categorize different material types such as organic, plastic, metal, paper, cardboard, e-waste, and glass waste.
