@@ -9,7 +9,7 @@ import classify from "../../Model_logic";
 const videoConstraints = {
   width: 250,
   height: 250,
-  facingMode: "user",
+  facingMode: "environment",
 };
 
 const WebcamCapture = (props) => {

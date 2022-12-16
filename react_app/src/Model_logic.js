@@ -3,38 +3,38 @@ import * as tf from "@tensorflow/tfjs";
 function switch_statement(data, setState) {
   switch (data["0"]) {
     case 0:
-      console.log("cardboard");
-      setState("Cardboard");
+      console.log("cardboard (Recyclable)");
+      setState("Cardboard (Recyclable)");
       //   finalresult = "Cardboard";
       break;
     case 1:
       console.log("e-waste");
-      setState("E-waste");
+      setState("E-waste (Recyclable)");
       //   finalresult = "E-Waste";
       break;
     case 2:
       console.log("glass");
-      setState("Glass");
+      setState("Glass (Recyclable)");
       //   finalresult = "Glass";
 
       break;
     case 3:
       console.log("metal");
-      setState("Metal");
+      setState("Metal (Recyclable)");
 
       //   finalresult = "Metal";
 
       break;
     case 4:
       console.log("paper");
-      setState("Paper");
+      setState("Paper (Recyclable)");
 
       //   finalresult = "Paper";
 
       break;
     case 5:
       console.log("plastic");
-      setState("Plastic");
+      setState("Plastic (Recyclable)");
 
       //   finalresult = "Plastic";
 
